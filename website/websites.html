@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Ressources gratuites pour les étudiants du baccalauréat : dossiers, fichiers, sites web et liens utiles." />
+  <link rel="stylesheet" href="style.css" />
+  <title>Sites web | Bac Ressources</title>
+</head>
+<body data-page="websites">
+  <header class="site-header">
+    <nav class="navbar container" aria-label="Navigation principale">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">BAC</span>
+        <span class="brand-text">Bac Ressources</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html" data-nav="home">Accueil</a>
+        <a href="resources.html" data-nav="resources">Ressources</a>
+        <a href="websites.html" data-nav="websites">Sites web</a>
+        <a href="downloadAll.html" data-nav="downloadAll">Tout télécharger</a>
+        <a href="collaborate.html" data-nav="collaborate">Partager</a>
+        <a href="about.html" data-nav="about">À propos</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="page-main">
+    <section class="page-hero section">
+      <div class="container narrow">
+        <p class="eyebrow">Sites utiles</p>
+        <h1>Sites web pour réviser le Bac</h1>
+        <p>
+          Une page séparée pour les sites web, chaînes et pages utiles liés aux révisions du baccalauréat.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="toolbar single">
+          <label class="search-box">
+            <span>Recherche</span>
+            <input id="websiteSearch" type="search" placeholder="Math, YouTube, conseils..." autocomplete="off" />
+          </label>
+        </div>
+
+        <div class="results-summary">
+          <span id="websiteCount">Chargement...</span>
+        </div>
+
+        <div class="cards-grid" id="websitesGrid"></div>
+        <div class="empty-state hidden" id="websitesEmpty">
+          <h2>Aucun site trouvé</h2>
+          <p>Essaie avec un autre mot-clé.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <p>© <span id="year"></span> El Mostahlek.</p>
+      <p>Made with ❤️ by Amr Slama.</p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

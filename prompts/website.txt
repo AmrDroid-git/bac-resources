@@ -1,0 +1,198 @@
+maintenant je veux creer un site web pour les etudiants de baccalaureat
+
+
+
+I want to upload it in netlify also
+
+
+
+the json file containing the websites I want it in a seperate page in the work
+
+the other two (files/ folders) I want them in the same page but we can filter 
+
+
+
+I want also home screen
+
+nav bar
+
+
+
+a page to download all ressources in json format and in txt format
+
+
+
+I want about page also containing infos 
+
+
+
+links of the about me are the same as those
+
+
+
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta name="description" content="Contact et liens officiels de la communauté El Mostahlek." />
+
+  <title>Contact | El Mostahlek</title>
+
+  <link rel="stylesheet" href="style.css" />
+
+</head>
+
+<body data-page="about">
+
+  <header class="site-header">
+
+    <nav class="navbar container" aria-label="Navigation principale">
+
+      <a class="brand" href="index.html"><span class="brand-mark">PCR</span><span class="brand-text">Prépa Classique</span></a>
+
+      <button class="nav-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
+
+      <div class="nav-links" id="navLinks">
+
+        <a href="index.html" data-nav="home">Accueil</a>
+
+        <a href="folders.html" data-nav="folders">Dossiers</a>
+
+        <a href="files.html" data-nav="files">Fichiers</a>
+
+        <a href="websites.html" data-nav="websites">Sites web</a>
+
+        <a href="downloadAll.html" data-nav="downloadAll">Tout télécharger</a>
+
+        <a href="collaborate.html" data-nav="collaborate">Partager des ressources</a>
+
+        <a href="about.html" data-nav="about">À propos</a>
+
+      </div>
+
+    </nav>
+
+  </header>
+
+
+
+  <main class="page-main">
+
+    <section class="page-hero section">
+
+      <div class="container narrow">
+
+        <p class="eyebrow">Contact / À propos</p>
+
+        <h1>Restons en contact</h1>
+
+        <p>
+
+          Retrouvez ici les liens officiels d’El Mostahlek et les moyens de contacter le développeur du site.
+
+        </p>
+
+      </div>
+
+    </section>
+
+
+
+    <section class="section">
+
+      <div class="container narrow content-card">
+
+        <h2>Compte officiel</h2>
+
+        <p>Suivez le compte officiel d’El Mostahlek :</p>
+
+        <div class="hero-actions">
+
+          <a class="btn btn-primary" href="https://www.facebook.com/elmostahlek" target="_blank" rel="noopener noreferrer">Facebook officiel</a>
+
+        </div>
+
+
+
+        <h2>Contacter le développeur du site</h2>
+
+        <p>Vous pouvez contacter Amr Slama via les liens suivants :</p>
+
+        <div class="hero-actions">
+
+          <a class="btn btn-secondary" href="mailto:amrdroidcommunity@gmail.com">amrdroidcommunity@gmail.com</a>
+
+          <a class="btn btn-secondary" href="mailto:amrslama97@gmail.com">amrslama97@gmail.com</a>
+
+          <a class="btn btn-secondary" href="https://www.facebook.com/you.got.hacked" target="_blank" rel="noopener noreferrer">Facebook</a>
+
+          <a class="btn btn-secondary" href="https://www.instagram.com/amr.droid/" target="_blank" rel="noopener noreferrer">Instagram</a>
+
+          <a class="btn btn-secondary" href="https://github.com/AmrDroid-git" target="_blank" rel="noopener noreferrer">GitHub</a>
+
+          <a class="btn btn-secondary" href="https://www.linkedin.com/in/slama-amr-27834b339/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+
+        </div>
+
+
+
+        <h2>Remerciement</h2>
+
+        <p>
+
+          Big thanks from El Mostahlek and the Estehlek community to Amr Slama for creating the website.
+
+        </p>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+
+  <footer class="site-footer">
+
+    <div class="container footer-content">
+
+      <p>© <span id="year"></span> El Mostahlek.</p>
+
+      <p>Made with ❤️ by Amr Slama.</p>
+
+    </div>
+
+  </footer>
+
+
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+and also a submit page if someone have drives to share
+
+
+
+https://docs.google.com/forms/d/e/1FAIpQLSdcdv0JnWta-2BpDoNe43m8PEpjDkdWq5JfPelms9lZBNTRmw/viewform
+
+
+
+this is the submit link for form
+

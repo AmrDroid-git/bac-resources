@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Ressources gratuites pour les étudiants du baccalauréat : dossiers, fichiers, sites web et liens utiles." />
+  <link rel="stylesheet" href="style.css" />
+  <title>Ressources | Bac Ressources</title>
+</head>
+<body data-page="resources">
+  <header class="site-header">
+    <nav class="navbar container" aria-label="Navigation principale">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">BAC</span>
+        <span class="brand-text">Bac Ressources</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html" data-nav="home">Accueil</a>
+        <a href="resources.html" data-nav="resources">Ressources</a>
+        <a href="websites.html" data-nav="websites">Sites web</a>
+        <a href="downloadAll.html" data-nav="downloadAll">Tout télécharger</a>
+        <a href="collaborate.html" data-nav="collaborate">Partager</a>
+        <a href="about.html" data-nav="about">À propos</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="page-main">
+    <section class="page-hero section">
+      <div class="container narrow">
+        <p class="eyebrow">Dossiers et fichiers</p>
+        <h1>Ressources Drive pour le Bac</h1>
+        <p>
+          Cette page regroupe les dossiers et les fichiers Google Drive. Utilise la recherche et les filtres pour trouver rapidement ce que tu veux.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="toolbar">
+          <label class="search-box">
+            <span>Recherche</span>
+            <input id="resourceSearch" type="search" placeholder="Math, physique, bac sciences, français..." autocomplete="off" />
+          </label>
+          <label class="filter-box">
+            <span>Type</span>
+            <select id="typeFilter">
+              <option value="all">Tous</option>
+              <option value="folder">Dossiers</option>
+              <option value="file">Fichiers</option>
+            </select>
+          </label>
+          <label class="filter-box">
+            <span>Propriétaire</span>
+            <select id="ownerFilter">
+              <option value="all">Tous</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="results-summary">
+          <span id="resourceCount">Chargement...</span>
+          <button class="text-button" type="button" id="resetFilters">Réinitialiser</button>
+        </div>
+
+        <div class="cards-grid" id="resourcesGrid"></div>
+        <div class="empty-state hidden" id="resourcesEmpty">
+          <h2>Aucune ressource trouvée</h2>
+          <p>Essaie avec un autre mot-clé ou enlève un filtre.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <p>© <span id="year"></span> El Mostahlek.</p>
+      <p>Made with ❤️ by Amr Slama.</p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
