@@ -139,10 +139,37 @@ select {
   animation: floatOrb var(--duration) ease-in-out infinite alternate;
 }
 
-.ambient span:nth-child(1) { --size: 20rem; --x: -7rem; --y: 6rem; --duration: 12s; --color: rgba(139, 92, 246, 0.34); }
-.ambient span:nth-child(2) { --size: 16rem; --x: 80%; --y: 4rem; --duration: 14s; --color: rgba(6, 182, 212, 0.3); }
-.ambient span:nth-child(3) { --size: 18rem; --x: 62%; --y: 70%; --duration: 16s; --color: rgba(34, 197, 94, 0.18); }
-.ambient span:nth-child(4) { --size: 12rem; --x: 10%; --y: 78%; --duration: 18s; --color: rgba(245, 158, 11, 0.17); }
+.ambient span:nth-child(1) {
+  --size: 20rem;
+  --x: -7rem;
+  --y: 6rem;
+  --duration: 12s;
+  --color: rgba(139, 92, 246, 0.34);
+}
+
+.ambient span:nth-child(2) {
+  --size: 16rem;
+  --x: 80%;
+  --y: 4rem;
+  --duration: 14s;
+  --color: rgba(6, 182, 212, 0.3);
+}
+
+.ambient span:nth-child(3) {
+  --size: 18rem;
+  --x: 62%;
+  --y: 70%;
+  --duration: 16s;
+  --color: rgba(34, 197, 94, 0.18);
+}
+
+.ambient span:nth-child(4) {
+  --size: 12rem;
+  --x: 10%;
+  --y: 78%;
+  --duration: 18s;
+  --color: rgba(245, 158, 11, 0.17);
+}
 
 .cursor-glow {
   position: fixed;
@@ -623,8 +650,13 @@ h3 {
   animation: iconFloat 3.5s ease-in-out infinite alternate;
 }
 
-.feature-card:nth-child(2) .feature-icon { animation-delay: -1.1s; }
-.feature-card:nth-child(3) .feature-icon { animation-delay: -2.2s; }
+.feature-card:nth-child(2) .feature-icon {
+  animation-delay: -1.1s;
+}
+
+.feature-card:nth-child(3) .feature-icon {
+  animation-delay: -2.2s;
+}
 
 .cta-card {
   padding: 32px;
@@ -824,9 +856,20 @@ h3 {
   white-space: nowrap;
 }
 
-.badge-folder { color: #c4b5fd; background: rgba(139, 92, 246, 0.16); }
-.badge-file { color: #bae6fd; background: rgba(14, 165, 233, 0.13); }
-.badge-website { color: #bbf7d0; background: rgba(34, 197, 94, 0.12); }
+.badge-folder {
+  color: #c4b5fd;
+  background: rgba(139, 92, 246, 0.16);
+}
+
+.badge-file {
+  color: #bae6fd;
+  background: rgba(14, 165, 233, 0.13);
+}
+
+.badge-website {
+  color: #bbf7d0;
+  background: rgba(34, 197, 94, 0.12);
+}
 
 .resource-card h2 {
   font-size: 1.23rem;
@@ -980,32 +1023,68 @@ h3 {
 }
 
 @keyframes spinBorder {
-  to { --angle: 360deg; }
+  to {
+    --angle: 360deg;
+  }
 }
 
 @keyframes shine {
-  0%, 42% { transform: rotate(22deg) translateX(-90%); }
-  58%, 100% { transform: rotate(22deg) translateX(90%); }
+
+  0%,
+  42% {
+    transform: rotate(22deg) translateX(-90%);
+  }
+
+  58%,
+  100% {
+    transform: rotate(22deg) translateX(90%);
+  }
 }
 
 @keyframes textGlow {
-  0% { background-position: 0% 50%; filter: drop-shadow(0 0 0 rgba(103, 232, 249, 0)); }
-  100% { background-position: 100% 50%; filter: drop-shadow(0 0 22px rgba(103, 232, 249, 0.18)); }
+  0% {
+    background-position: 0% 50%;
+    filter: drop-shadow(0 0 0 rgba(103, 232, 249, 0));
+  }
+
+  100% {
+    background-position: 100% 50%;
+    filter: drop-shadow(0 0 22px rgba(103, 232, 249, 0.18));
+  }
 }
 
 @keyframes floatOrb {
-  from { transform: translate3d(0, 0, 0) scale(1); }
-  to { transform: translate3d(34px, -28px, 0) scale(1.08); }
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  to {
+    transform: translate3d(34px, -28px, 0) scale(1.08);
+  }
 }
 
 @keyframes pulseSoft {
-  0%, 100% { transform: scale(0.92); opacity: 0.48; }
-  50% { transform: scale(1.08); opacity: 0.84; }
+
+  0%,
+  100% {
+    transform: scale(0.92);
+    opacity: 0.48;
+  }
+
+  50% {
+    transform: scale(1.08);
+    opacity: 0.84;
+  }
 }
 
 @keyframes iconFloat {
-  from { transform: translateY(0) rotate(-2deg); }
-  to { transform: translateY(-8px) rotate(3deg); }
+  from {
+    transform: translateY(0) rotate(-2deg);
+  }
+
+  to {
+    transform: translateY(-8px) rotate(3deg);
+  }
 }
 
 @media (max-width: 980px) {
@@ -1073,11 +1152,19 @@ h3 {
 }
 
 @keyframes menuDrop {
-  from { opacity: 0; transform: translateY(-8px) scale(0.98); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 @media (max-width: 560px) {
+
   .container,
   .container.narrow {
     width: min(100% - 22px, var(--container));
@@ -1131,6 +1218,7 @@ h3 {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {
@@ -1143,5 +1231,78 @@ h3 {
   .reveal {
     opacity: 1;
     transform: none;
+  }
+}
+
+
+button.btn {
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+button.btn:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+/* Last modification badge */
+.last-modif-date {
+  position: absolute;
+  top: 7px;
+  left: max(16px, calc((100vw - var(--container)) / 2 + 16px));
+  z-index: 70;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  max-width: calc(100vw - 32px);
+  padding: 5px 12px;
+  border: 1px solid rgba(103, 232, 249, 0.24);
+  border-radius: 999px;
+  color: rgba(248, 251, 255, 0.86);
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.16), rgba(6, 182, 212, 0.11));
+  box-shadow: 0 10px 30px rgba(6, 182, 212, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(14px) saturate(145%);
+  font-size: 0.72rem;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.last-modif-date::before {
+  content: "●";
+  color: var(--accent-2);
+  font-size: 0.62rem;
+  text-shadow: 0 0 12px rgba(34, 197, 94, 0.65);
+}
+
+.navbar {
+  padding-top: 24px;
+}
+
+@media (max-width: 980px) {
+  .last-modif-date {
+    left: 16px;
+    right: 16px;
+    justify-content: center;
+  }
+
+  .nav-links {
+    top: 108px;
+  }
+}
+
+@media (max-width: 560px) {
+  .last-modif-date {
+    top: 6px;
+    font-size: 0.68rem;
+    padding: 4px 10px;
+  }
+
+  .navbar {
+    min-height: 86px;
+    padding-top: 26px;
   }
 }

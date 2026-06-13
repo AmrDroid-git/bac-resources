@@ -2,7 +2,7 @@ const DATA_PATHS = {
   folders: "data/folders.json",
   files: "data/files.json",
   websites: "data/websites.json",
-  all: "data/all_resources.json",
+  lastModification: "data/last_modif_date/last_modif_date.json",
 };
 
 const labels = {
@@ -23,6 +23,8 @@ document.addEventListener("DOMContentLoaded", () => {
   setupVisualEffects();
   setupNavbar();
   setupFooterYear();
+  setupLastModificationDate();
+  setupDynamicDownloads();
 
   const page = document.body.dataset.page;
 
@@ -104,10 +106,175 @@ function setupFooterYear() {
   if (year) year.textContent = new Date().getFullYear();
 }
 
-async function fetchJson(path) {
-  const response = await fetch(path);
+async function fetchJson(path, options = {}) {
+  const response = await fetch(path, options);
   if (!response.ok) throw new Error(`Impossible de charger ${path}`);
   return response.json();
+}
+
+function setupLastModificationDate() {
+  const header = document.querySelector(".site-header");
+  if (!header || document.querySelector("#lastModifDate")) return;
+
+  const badge = document.createElement("div");
+  badge.id = "lastModifDate";
+  badge.className = "last-modif-date";
+  badge.textContent = "Dernière modification : chargement...";
+  header.prepend(badge);
+
+  fetchJson(DATA_PATHS.lastModification, { cache: "no-store" })
+    .then((data) => {
+      const value = data.lastModificationDate || data.last_modif_date || data.date;
+      badge.textContent = value
+        ? `Dernière modification : ${value}`
+        : "Dernière modification : non définie";
+    })
+    .catch((error) => {
+      console.error(error);
+      badge.textContent = "Dernière modification : non disponible";
+    });
+}
+
+async function loadAllResources() {
+  const [folders, files, websites] = await Promise.all([
+    fetchJson(DATA_PATHS.folders),
+    fetchJson(DATA_PATHS.files),
+    fetchJson(DATA_PATHS.websites),
+  ]);
+
+  const cleanFolders = folders.map((item) => ({ ...item, type: "folder" }));
+  const cleanFiles = files.map((item) => ({ ...item, type: "file" }));
+  const cleanWebsites = websites.map((item) => ({ ...item, type: "website" }));
+
+  const resources = [...cleanFolders, ...cleanFiles, ...cleanWebsites];
+
+  return {
+    generatedAt: new Date().toISOString(),
+    total: resources.length,
+    counts: {
+      folders: cleanFolders.length,
+      files: cleanFiles.length,
+      websites: cleanWebsites.length,
+    },
+    resources,
+  };
+}
+
+async function loadResourcesByType(type) {
+  if (type === "all") {
+    return loadAllResources();
+  }
+
+  const resources = await fetchJson(DATA_PATHS[type]);
+
+  return resources.map((item) => ({
+    ...item,
+    type: item.type || type.slice(0, -1),
+  }));
+}
+
+function downloadFile(filename, content, mimeType) {
+  const blob = new Blob([content], { type: mimeType });
+  const url = URL.createObjectURL(blob);
+
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = filename;
+
+  document.body.appendChild(link);
+  link.click();
+
+  link.remove();
+  URL.revokeObjectURL(url);
+}
+
+function convertResourcesToTxt(title, resources) {
+  const lines = [];
+
+  lines.push(title);
+  lines.push("=".repeat(title.length));
+  lines.push("");
+
+  resources.forEach((item, index) => {
+    lines.push(`${index + 1}. ${item.name || "Sans nom"}`);
+    lines.push(`Type: ${getTypeLabel(item.type)}`);
+
+    if (item.owner) {
+      lines.push(`Propriétaire: ${item.owner}`);
+    }
+
+    lines.push(`Description: ${item.description || "Aucune description."}`);
+    lines.push(`Lien: ${item.link || ""}`);
+    lines.push("");
+  });
+
+  return lines.join("\n");
+}
+
+function getTypeLabel(type) {
+  if (type === "folder") return "Dossier";
+  if (type === "file") return "Fichier";
+  if (type === "website") return "Site web";
+  return "Ressource";
+}
+
+function getDownloadTitle(type) {
+  if (type === "folders") return "Dossiers Google Drive - Bac Ressources";
+  if (type === "files") return "Fichiers Google Drive - Bac Ressources";
+  if (type === "websites") return "Sites web - Bac Ressources";
+  return "Toutes les ressources - Bac Ressources";
+}
+
+function getDownloadFilename(type, format) {
+  if (type === "all") return `all_resources.${format}`;
+  return `${type}.${format}`;
+}
+
+async function downloadResources(type, format) {
+  const data = await loadResourcesByType(type);
+  const filename = getDownloadFilename(type, format);
+
+  if (format === "json") {
+    const jsonContent = JSON.stringify(data, null, 2);
+    downloadFile(filename, jsonContent, "application/json;charset=utf-8");
+    return;
+  }
+
+  if (format === "txt") {
+    const resources = type === "all" ? data.resources : data;
+    const title = getDownloadTitle(type);
+    const txtContent = convertResourcesToTxt(title, resources);
+    downloadFile(filename, txtContent, "text/plain;charset=utf-8");
+  }
+}
+
+function setupDynamicDownloads() {
+  const buttons = document.querySelectorAll("[data-download-type][data-download-format]");
+
+  buttons.forEach((button) => {
+    if (button.dataset.downloadReady === "true") return;
+    button.dataset.downloadReady = "true";
+
+    button.addEventListener("click", async () => {
+      const type = button.dataset.downloadType;
+      const format = button.dataset.downloadFormat;
+
+      const originalText = button.textContent;
+
+      try {
+        button.disabled = true;
+        button.textContent = "Préparation...";
+
+        await downloadResources(type, format);
+      } catch (error) {
+        console.error(error);
+        alert("Erreur pendant la préparation du téléchargement.");
+      } finally {
+        button.disabled = false;
+        button.textContent = originalText;
+      }
+    });
+  });
 }
 
 async function loadHomeStats() {
@@ -227,6 +394,8 @@ async function loadWebsitesPage() {
 }
 
 function fillOwnerFilter(resources, select) {
+  select.querySelectorAll("option:not([value='all'])").forEach((option) => option.remove());
+
   const owners = Array.from(
     new Set(resources.map((item) => item.owner).filter(Boolean))
   ).sort((a, b) => a.localeCompare(b, "fr"));

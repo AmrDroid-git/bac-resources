@@ -7,19 +7,39 @@ Site statique en français pour organiser des ressources utiles aux étudiants d
 - `index.html` : page d'accueil
 - `resources.html` : dossiers + fichiers avec recherche et filtres
 - `websites.html` : sites web séparés
-- `downloadAll.html` : téléchargement JSON/TXT
+- `downloadAll.html` : téléchargement JSON/TXT généré automatiquement par JavaScript
 - `collaborate.html` : formulaire de partage
 - `about.html` : informations et contacts
 - `404.html` : page d'erreur
 
 ## Données
 
-Les données sont dans le dossier `data/`.
+Les seules données sources à modifier sont dans le dossier `data/` :
 
-- `folders.json` / `folders.txt`
-- `files.json` / `files.txt`
-- `websites.json` / `websites.txt`
-- `all_resources.json` / `all_resources.txt`
+- `folders.json`
+- `files.json`
+- `websites.json`
+- `last_modif_date/last_modif_date.json`
+
+Les fichiers TXT ne sont plus stockés dans le projet. Ils sont créés automatiquement dans le navigateur quand l'utilisateur clique sur un bouton de téléchargement.
+
+Le fichier `all_resources.json` n'est plus stocké non plus. Il est généré automatiquement à partir de `folders.json`, `files.json` et `websites.json` quand l'utilisateur clique sur "Télécharger JSON" dans le pack complet.
+
+## Test local
+
+Depuis le dossier du site :
+
+```bash
+python -m http.server 3000
+```
+
+Puis ouvre :
+
+```txt
+http://localhost:3000
+```
+
+Ne pas ouvrir `index.html` directement avec un double-clic, car le navigateur bloque souvent le chargement des fichiers JSON avec `file://`.
 
 ## Déploiement Netlify
 
@@ -41,4 +61,12 @@ Méthode GitHub :
 
 ## Mise à jour des ressources
 
-Remplace les fichiers JSON dans `data/`, puis mets aussi à jour les fichiers TXT si nécessaire.
+Ajoute les nouvelles ressources seulement dans :
+
+- `data/folders.json` pour les dossiers Drive
+- `data/files.json` pour les fichiers Drive
+- `data/websites.json` pour les sites web
+
+Puis change la date dans :
+
+- `data/last_modif_date/last_modif_date.json`
