@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setupFooterYear();
   setupLastModificationDate();
   setupDynamicDownloads();
+  setupSmartToolbar();
 
   const page = document.body.dataset.page;
 
@@ -275,6 +276,60 @@ function setupDynamicDownloads() {
       }
     });
   });
+}
+
+function setupSmartToolbar() {
+  const toolbar = document.querySelector(".toolbar");
+  if (!toolbar) return;
+
+  let lastScrollY = window.scrollY;
+  let hideStartY = 0;
+  let ticking = false;
+  const minMovement = 6;
+
+  const calculateHideStart = () => {
+    const resourcesGrid = document.querySelector("#resourcesGrid, #websitesGrid");
+    const target = resourcesGrid || toolbar;
+    const targetTop = target.getBoundingClientRect().top + window.scrollY;
+    hideStartY = Math.max(targetTop - toolbar.offsetHeight - 24, 0);
+  };
+
+  const showToolbar = () => {
+    toolbar.classList.remove("toolbar-hidden");
+  };
+
+  const hideToolbar = () => {
+    const focusedInside = toolbar.contains(document.activeElement);
+    if (!focusedInside) toolbar.classList.add("toolbar-hidden");
+  };
+
+  const update = () => {
+    calculateHideStart();
+
+    const currentScrollY = Math.max(window.scrollY, 0);
+    const difference = currentScrollY - lastScrollY;
+
+    if (currentScrollY <= hideStartY) {
+      showToolbar();
+    } else if (Math.abs(difference) > minMovement) {
+      if (difference > 0) hideToolbar();
+      else showToolbar();
+    }
+
+    lastScrollY = currentScrollY;
+    ticking = false;
+  };
+
+  window.addEventListener("scroll", () => {
+    if (!ticking) {
+      window.requestAnimationFrame(update);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  window.addEventListener("resize", calculateHideStart, { passive: true });
+  toolbar.addEventListener("focusin", showToolbar);
+  calculateHideStart();
 }
 
 async function loadHomeStats() {
