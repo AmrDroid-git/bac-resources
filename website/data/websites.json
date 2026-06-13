@@ -1,6 +1,12 @@
 [
   {
     "type": "website",
+    "name": "studylikegranger",
+    "description": "site web tres connu contenant plusieus ressources studylikegranger.",
+    "link": "https://amenibendriss.wixsite.com/studylikegranger"
+  },
+  {
+    "type": "website",
     "name": "Les lauréats 2025 - section maths",
     "description": "Page Google Sites dédiée à la section maths. Elle contient des profils d’élèves du Bac maths, des conseils pour réussir le Bac et des liens vers des ressources Drive partagées.",
     "link": "https://sites.google.com/view/les-laureats2025/section-maths"

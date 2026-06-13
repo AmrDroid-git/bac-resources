@@ -1,6 +1,69 @@
 [
   {
     "type": "folder",
+    "name": "Bac Informatique 2020",
+    "description": "Dossier Google Drive contenant des ressources pour le Bac Informatique 2020.",
+    "link": "https://drive.google.com/drive/folders/1MmRR0FuFzhp1HOnHwEIpRw00FynMhAXf",
+    "owner": "ghaithhasnaoui2"
+  },
+  {
+    "type": "folder",
+    "name": "Bac Sciences 2025 + Allemand Option",
+    "description": "Dossier Google Drive regroupant des ressources pour le Bac Sciences 2025, avec des documents pour l’allemand option.",
+    "link": "https://drive.google.com/drive/folders/1IDP2tEUPQPcvK4QpF4h5SQgh_MBkuRIz",
+    "owner": "nourelimenchakroun"
+  },
+  {
+    "type": "folder",
+    "name": "Taki Academy — Bac Informatique",
+    "description": "Dossier Google Drive contenant des ressources Taki Academy pour le Bac Informatique.",
+    "link": "https://drive.google.com/drive/folders/1io8-UPpB2x7lVORpv9USHGgFvPdQZ6mC",
+    "owner": "waadhfd4"
+  },
+  {
+    "type": "folder",
+    "name": "Taki Academy Bac Informatique 2024",
+    "description": "Dossier Google Drive contenant des ressources Taki Academy pour le Bac Informatique 2024.",
+    "link": "https://drive.google.com/drive/folders/1hNq-WwJDYZtEX5IKu1CPlBcIYyeKHE4c",
+    "owner": "korgabid"
+  },
+  {
+    "type": "folder",
+    "name": "Bac Informatique",
+    "description": "Dossier Google Drive contenant des ressources générales pour le Bac Informatique.",
+    "link": "https://drive.google.com/drive/folders/1EARrbPNNftwbNoC-pW_MpVzYhoYWGAeO",
+    "owner": "ysfbrr2014"
+  },
+  {
+    "type": "folder",
+    "name": "Bac Mathématiques 2023",
+    "description": "Dossier Google Drive contenant des ressources pour le Bac Mathématiques 2023.",
+    "link": "https://drive.google.com/drive/folders/1oR14zoPXzKHphDSss9LcNHl_ZC7e8qRp",
+    "owner": "meedmokhtarkhaled"
+  },
+  {
+    "type": "folder",
+    "name": "Archive Bac — Programme Taki Academy",
+    "description": "Archive MediaFire contenant des ressources Bac compressées au format RAR.",
+    "link": "https://www.mediafire.com/file/mui8y9sizbmibil/bac.rar/file",
+    "owner": "ANONYMOUS"
+  },
+  {
+    "type": "folder",
+    "name": "Philo BAC Tunisie — Arabe, Anglais et Français",
+    "description": "Dossier Google Drive contenant des ressources de philosophie pour le Bac tunisien, en arabe, anglais et français.",
+    "link": "https://drive.google.com/drive/u/0/folders/1OYyGEXXGtspHUab8ihCeNdN1PN_1jX77",
+    "owner": "rafeehmaddouri"
+  },
+  {
+    "type": "folder",
+    "name": "3ème Maths, Bac Sciences 2025 et Réorientation Médecine",
+    "description": "Dossier Google Drive contenant des ressources pour la 3ème Mathématiques, le Bac Sciences 2025 et la réorientation médecine.",
+    "link": "https://drive.google.com/drive/folders/1XcioLpsBspUaYjb0oaHhTG2UlJ2hK3ox",
+    "owner": "abderrahmanehouria1"
+  },
+  {
+    "type": "folder",
     "name": "Fichiers et ressources importantes",
     "description": "Dossier Google Drive intitulé « Fichiers et ressources importantes ». Il semble regrouper des documents et ressources éducatives partagés. Le titre public du dossier était accessible, mais la liste interne complète des fichiers n’était pas lisible depuis cet environnement.",
     "link": "https://drive.google.com/drive/folders/1yB1S-9kYIroVCPBuP3bhby9Hd0XbXBLV",
